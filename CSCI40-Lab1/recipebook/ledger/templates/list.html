@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>{{name}}</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block content %}
         <h1>Recipes:</h1>
         <ul>
             {% for recipes in recipes %}
@@ -13,5 +10,4 @@
                 <br>
             {% endfor %}
         </ul>
-    </body>
-</html>
+{% endblock %}
