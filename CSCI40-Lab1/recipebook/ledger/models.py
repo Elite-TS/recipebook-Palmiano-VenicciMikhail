@@ -9,8 +9,8 @@ class Ingredient(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
     
-    # def get_absolute_url(self):
-        return reverse('ledger:')
+    def get_absolute_url(self):
+        return reverse('ledger:ingredient_detail', args=[str(self.id)])
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
@@ -26,11 +26,11 @@ class RecipeIngredient(models.Model):
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,
-        related_name='specified_ingredient'
+        related_name='recipe'
     )
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name='specified_recipe'
+        related_name='ingredients'
     )
 

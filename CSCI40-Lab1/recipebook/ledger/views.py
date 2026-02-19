@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from .models import Recipe
 from django.views.generic.detail import DetailView
-from django.views.generic.detail import ListView
+from django.views.generic.list import ListView
 
 # Create your views here.
-
+'''
 def recipe1(request):
     ctx = {
         "name": "Recipe 1",
@@ -137,11 +137,12 @@ def recipes_list(request):
         ]
     }
     return render(request, "list.html", ctx)
-
-class RecipeListView(ListView):
+'''
+    
+class RecipeList(ListView):
     model = Recipe
-    template_name = 'recipes_list.html'
+    template_name = 'list.html'
 
-class RecipeDetailView(DetailView):
+class ShowRecipe(DetailView):
     model = Recipe
-    template_name = 'recipe.html'
+    template_name = 'show_recipe.html'
