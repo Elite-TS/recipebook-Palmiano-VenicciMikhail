@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from useraccounts.models import Profile
 
 # Create your models here.
 
@@ -14,6 +15,13 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name='recipes'
+    )
 
     def __str__(self):
         return '{}'.format(self.name)
