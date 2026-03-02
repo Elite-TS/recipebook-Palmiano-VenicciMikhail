@@ -4,14 +4,16 @@ from useraccounts.models import Profile
 
 # Create your models here.
 
+
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return '{}'.format(self.name)
-    
+
     def get_absolute_url(self):
         return reverse('ledger:ingredient_detail', args=[str(self.id)])
+
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
@@ -25,9 +27,10 @@ class Recipe(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
-    
+
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail', args=[str(self.id)])
+
 
 class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=100)
@@ -41,4 +44,3 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE,
         related_name='ingredients'
     )
-

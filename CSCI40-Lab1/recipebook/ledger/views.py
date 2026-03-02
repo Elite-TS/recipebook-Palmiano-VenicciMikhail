@@ -6,9 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
+
 class RecipeList(ListView):
     model = Recipe
     template_name = 'list.html'
+
 
 class ShowRecipe(LoginRequiredMixin, DetailView):
     model = Recipe
