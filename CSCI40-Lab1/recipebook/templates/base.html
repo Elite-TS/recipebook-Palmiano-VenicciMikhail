@@ -1,8 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en-US">
     <body>
         <header>
             <h1>Recipe Book</h1>
+            <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
             {% if request.user.is_authenticated %}
                 <form method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}

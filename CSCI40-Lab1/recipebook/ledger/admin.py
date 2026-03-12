@@ -12,7 +12,7 @@ class RecipeImageInline(admin.TabularInline):
 
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
-    inlines = [RecipeIngredientInline,]
+    inlines = [RecipeIngredientInline, RecipeImageInline,]
 
 
 admin.site.register(Recipe, RecipeAdmin)
