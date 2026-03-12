@@ -15,4 +15,5 @@
                 <br>
             {% endfor %}
         </ul>
+        <h3><a href="{% url 'ledger:recipe_image_upload' pk=recipe.pk %}">Add Image</a></h3>
 {% endblock %}

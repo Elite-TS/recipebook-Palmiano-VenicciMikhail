@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block page_heading %}
+    Add Image to {{ recipe }}
+{% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="submit" value="Save Form">
+    </form>
+    <h4><a href="{{ recipe.get_absolute_url }}">Return to {{ recipe }}</a></h4>
+{% endblock %}
